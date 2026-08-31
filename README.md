@@ -1,2 +1,2 @@
 # Techno-King
-Our first project together !
+Our first learning project together !
