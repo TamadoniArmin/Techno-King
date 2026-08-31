@@ -1,0 +1,17 @@
+**/bin/
+**/obj/
+
+**/.vs/
+**/.idea/
+
+**/node_modules/
+
+.git/
+.gitignore
+
+*.user
+*.suo
+
+.DS_Store
+
+README.md

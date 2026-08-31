@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "U+G+OKKWGNw=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Amin.Tamadoni\\Desktop\\Coding\\Techno_King\\Techno_king_Api_endpoint\\Techno_king_Api_endpoint.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Amin.Tamadoni\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.11\\microsoft.aspnetcore.openapi.9.0.11.nupkg.sha512",
+    "C:\\Users\\Amin.Tamadoni\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,6 @@
+@Techno_king_Api_endpoint_HostAddress = http://localhost:5027
+
+GET {{Techno_king_Api_endpoint_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
