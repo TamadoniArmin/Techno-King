@@ -18,7 +18,7 @@ using Techno_KingService.Techno_King.Products;
 using Techno_KingService.Techno_King.Techno_GeneralService;
 using Techno_KingService.Techno_King.Users;
 
-//  Comment test
+
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateLogger();
@@ -68,15 +68,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// --- CORS configuration ---
-var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>()
-                     ?? new[] { "http://localhost:5173" };
-
+// --- CORS Configuration (Global access for development) ---
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", policy =>
+    options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins(allowedOrigins)
+        policy.AllowAnyOrigin()
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
@@ -84,8 +81,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// فعال‌سازی پادیاست CORS با نام جدید AllowFrontend
-app.UseCors("AllowFrontend");
+app.UseCors();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -98,7 +94,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
