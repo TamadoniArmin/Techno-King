@@ -432,3 +432,6 @@ FodyWeavers.xsd
 .copilot/
 copilot-instruction.md
 *.metadata.v9.bin
+# Ignore Copilot Instructions and .github cache
+.github/copilot-instructions.md
+copilot-instructions.md
