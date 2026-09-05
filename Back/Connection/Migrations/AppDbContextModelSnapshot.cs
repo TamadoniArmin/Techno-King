@@ -84,26 +84,74 @@ namespace Connection.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "Smart technology, laptops, phones, and tablets",
-                            ImagePath = "images/categories/Smart_Devices.jpg",
+                            Description = "Laptops, desktop PCs, and computing accessories",
+                            ImagePath = "images/categories/Laptops_&_Computers.png",
                             IsDeleted = false,
-                            Title = "Smart Devices"
+                            Title = "Laptops & Computers"
                         },
                         new
                         {
                             Id = 2,
-                            Description = "Mobile and tech accessories, cases, and audio gear",
-                            ImagePath = "images/categories/Accessories.jpg",
+                            Description = "Smartphones and mobile communication devices",
+                            ImagePath = "images/categories/Mobile_Phones.jpg",
                             IsDeleted = false,
-                            Title = "Accessories"
+                            Title = "Mobile Phones"
                         },
                         new
                         {
                             Id = 3,
-                            Description = "Home electronics, speakers, and projectors",
-                            ImagePath = "images/categories/Electronic_Gadgets.jpg",
+                            Description = "Touchscreen tablets, smart pads, and e-readers",
+                            ImagePath = "images/categories/Tablets_&_E-reader.jpg",
                             IsDeleted = false,
-                            Title = "Electronic Gadgets"
+                            Title = "Tablets & E-reader"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Description = "Smartwatches, fitness bands, and wearable tech",
+                            ImagePath = "images/categories/Wearables.jpg",
+                            IsDeleted = false,
+                            Title = "Wearables"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Description = "Headphones, earphones, speakers, and sound systems",
+                            ImagePath = "images/categories/Audio.jpg",
+                            IsDeleted = false,
+                            Title = "Audio"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Description = "DSLR, mirrorless cameras, action cams, and lenses",
+                            ImagePath = "images/categories/Cameras.jpg",
+                            IsDeleted = false,
+                            Title = "Cameras"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Description = "Gaming consoles, controllers, and gaming gear",
+                            ImagePath = "images/categories/Gaming.jpg",
+                            IsDeleted = false,
+                            Title = "Gaming"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Description = "Routers, modems, switches, and network gear",
+                            ImagePath = "images/categories/Networking.jpg",
+                            IsDeleted = false,
+                            Title = "Networking"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Description = "Tech accessories, cases, cables, and chargers",
+                            ImagePath = "images/categories/Accessories.jpg",
+                            IsDeleted = false,
+                            Title = "Accessories"
                         },
                         new
                         {
@@ -117,11 +165,11 @@ namespace Connection.Migrations
                         new
                         {
                             Id = 5,
-                            Description = "Smartphones and mobile communication devices",
-                            ImagePath = "images/categories/Mobile_Phones.jpg",
+                            Description = "Android and iOS mobile devices",
+                            ImagePath = "images/categories/Smartphones.jpg",
                             IsDeleted = false,
-                            ParentId = 1,
-                            Title = "Mobile Phones"
+                            ParentId = 2,
+                            Title = "Smartphones"
                         },
                         new
                         {
@@ -129,7 +177,7 @@ namespace Connection.Migrations
                             Description = "Touchscreen tablets and smart pads",
                             ImagePath = "images/categories/Tablets.jpg",
                             IsDeleted = false,
-                            ParentId = 1,
+                            ParentId = 3,
                             Title = "Tablets"
                         },
                         new
@@ -138,7 +186,7 @@ namespace Connection.Migrations
                             Description = "Protective covers and phone cases",
                             ImagePath = "images/categories/Phone_Cases.jpg",
                             IsDeleted = false,
-                            ParentId = 2,
+                            ParentId = 10,
                             Title = "Phone Cases"
                         },
                         new
@@ -147,7 +195,7 @@ namespace Connection.Migrations
                             Description = "Wireless earbuds, TWS, and over-ear headphones",
                             ImagePath = "images/categories/Headphones_&_Earphones.jpg",
                             IsDeleted = false,
-                            ParentId = 2,
+                            ParentId = 12,
                             Title = "Headphones & Earphones"
                         },
                         new
@@ -156,17 +204,80 @@ namespace Connection.Migrations
                             Description = "Bluetooth and portable audio speakers",
                             ImagePath = "images/categories/Speakers.jpg",
                             IsDeleted = false,
-                            ParentId = 3,
+                            ParentId = 12,
                             Title = "Speakers"
                         },
                         new
                         {
-                            Id = 10,
-                            Description = "Home cinema and portable smart projectors",
-                            ImagePath = "images/categories/Projectors.jpg",
+                            Id = 16,
+                            Description = "Smart fitness and lifestyle watches",
+                            ImagePath = "images/categories/Smartwatches.jpg",
                             IsDeleted = false,
-                            ParentId = 3,
-                            Title = "Projectors"
+                            ParentId = 11,
+                            Title = "Smartwatches"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Description = "Activity trackers and health bands",
+                            ImagePath = "images/categories/Fitness_Bands.jpg",
+                            IsDeleted = false,
+                            ParentId = 11,
+                            Title = "Fitness Bands"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Description = "Professional cameras and interchangeable lenses",
+                            ImagePath = "images/categories/DSLR_&_Mirrorless.jpg",
+                            IsDeleted = false,
+                            ParentId = 13,
+                            Title = "DSLR & Mirrorless"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Description = "Compact action cameras and camcorders",
+                            ImagePath = "images/categories/Action_Cameras.jpg",
+                            IsDeleted = false,
+                            ParentId = 13,
+                            Title = "Action Cameras"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Description = "PlayStation, Xbox, and Nintendo consoles",
+                            ImagePath = "images/categories/Gaming_Consoles.jpg",
+                            IsDeleted = false,
+                            ParentId = 14,
+                            Title = "Gaming Consoles"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Description = "Controllers, gamepads, and VR headsets",
+                            ImagePath = "images/categories/Gaming_Accessories.jpg",
+                            IsDeleted = false,
+                            ParentId = 14,
+                            Title = "Gaming Accessories"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Description = "Wireless routers and Mesh Wi-Fi systems",
+                            ImagePath = "images/categories/Wi-Fi_Routers.jpg",
+                            IsDeleted = false,
+                            ParentId = 15,
+                            Title = "Wi-Fi Routers"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Description = "ADSL/VDSL modems and Ethernet network switches",
+                            ImagePath = "images/categories/Modems_&_Switches.jpg",
+                            IsDeleted = false,
+                            ParentId = 15,
+                            Title = "Modems & Switches"
                         });
                 });
 
@@ -1114,6 +1225,182 @@ namespace Connection.Migrations
                             Price = 5000f,
                             SalesCount = 310,
                             SubCategoryId = 10
+                        },
+                        new
+                        {
+                            Id = 51,
+                            AverageRating = 4.8f,
+                            Brand = "Apple",
+                            Description = "Advanced smartwatch featuring S9 SiP, Double Tap gesture, and bright Always-On Retina display.",
+                            DiscountPercentage = 5,
+                            ImageUrl1 = "images/Products/Apple_Watch_Series_9/image_1.jpg",
+                            ImageUrl2 = "images/Products/Apple_Watch_Series_9/image_2.jpg",
+                            ImageUrl3 = "images/Products/Apple_Watch_Series_9/image_3.jpg",
+                            IsDeleted = false,
+                            Name = "Apple Watch Series 9",
+                            Price = 16000f,
+                            SalesCount = 520,
+                            SubCategoryId = 16
+                        },
+                        new
+                        {
+                            Id = 52,
+                            AverageRating = 4.6f,
+                            Brand = "Samsung",
+                            Description = "Comprehensive health tracker with personalized heart rate zones and sleep coaching.",
+                            DiscountPercentage = 10,
+                            ImageUrl1 = "images/Products/Samsung_Galaxy_Watch_6/image_1.jpg",
+                            ImageUrl2 = "images/Products/Samsung_Galaxy_Watch_6/image_2.jpg",
+                            ImageUrl3 = "images/Products/Samsung_Galaxy_Watch_6/image_3.jpg",
+                            IsDeleted = false,
+                            Name = "Samsung Galaxy Watch 6",
+                            Price = 12000f,
+                            SalesCount = 410,
+                            SubCategoryId = 16
+                        },
+                        new
+                        {
+                            Id = 53,
+                            AverageRating = 4.5f,
+                            Brand = "Xiaomi",
+                            Description = "Lightweight fitness band featuring 1.62-inch AMOLED display and 16-day battery life.",
+                            DiscountPercentage = 15,
+                            ImageUrl1 = "images/Products/Xiaomi_Smart_Band_8/image_1.jpg",
+                            ImageUrl2 = "images/Products/Xiaomi_Smart_Band_8/image_2.png",
+                            ImageUrl3 = "images/Products/Xiaomi_Smart_Band_8/image_3.jpg",
+                            IsDeleted = false,
+                            Name = "Xiaomi Smart Band 8",
+                            Price = 2000f,
+                            SalesCount = 1100,
+                            SubCategoryId = 17
+                        },
+                        new
+                        {
+                            Id = 54,
+                            AverageRating = 4.9f,
+                            Brand = "Sony",
+                            Description = "Full-frame mirrorless camera with 33MP Exmor R sensor and 4K 60p video capabilities.",
+                            DiscountPercentage = 0,
+                            ImageUrl1 = "images/Products/Sony_Alpha_A7_IV/image_1.jpg",
+                            ImageUrl2 = "images/Products/Sony_Alpha_A7_IV/image_2.jpg",
+                            ImageUrl3 = "images/Products/Sony_Alpha_A7_IV/image_3.jpg",
+                            IsDeleted = false,
+                            Name = "Sony Alpha A7 IV",
+                            Price = 95000f,
+                            SalesCount = 140,
+                            SubCategoryId = 18
+                        },
+                        new
+                        {
+                            Id = 55,
+                            AverageRating = 4.8f,
+                            Brand = "Canon",
+                            Description = "Versatile full-frame camera offering 24.2MP sensor and up to 40 fps continuous shooting.",
+                            DiscountPercentage = 5,
+                            ImageUrl1 = "images/Products/Canon_EOS_R6_Mark_II/image_1.webp",
+                            ImageUrl2 = "images/Products/Canon_EOS_R6_Mark_II/image_2.jpg",
+                            ImageUrl3 = "images/Products/Canon_EOS_R6_Mark_II/image_3.webp",
+                            IsDeleted = false,
+                            Name = "Canon EOS R6 Mark II",
+                            Price = 88000f,
+                            SalesCount = 95,
+                            SubCategoryId = 18
+                        },
+                        new
+                        {
+                            Id = 56,
+                            AverageRating = 4.7f,
+                            Brand = "GoPro",
+                            Description = "Rugged action camera featuring 5.3K60 video recording and HyperSmooth 6.0 stabilization.",
+                            DiscountPercentage = 8,
+                            ImageUrl1 = "images/Products/GoPro_HERO12_Black/image_1.png",
+                            ImageUrl2 = "images/Products/GoPro_HERO12_Black/image_2.jpg",
+                            ImageUrl3 = "images/Products/GoPro_HERO12_Black/image_3.jpg",
+                            IsDeleted = false,
+                            Name = "GoPro HERO12 Black",
+                            Price = 18000f,
+                            SalesCount = 380,
+                            SubCategoryId = 19
+                        },
+                        new
+                        {
+                            Id = 57,
+                            AverageRating = 4.9f,
+                            Brand = "Sony",
+                            Description = "Next-gen gaming console with ultra-high speed SSD and DualSense wireless controller support.",
+                            DiscountPercentage = 0,
+                            ImageUrl1 = "images/Products/PlayStation_5_Console/image_1.png",
+                            ImageUrl2 = "images/Products/PlayStation_5_Console/image_2.png",
+                            ImageUrl3 = "images/Products/PlayStation_5_Console/image_3.png",
+                            IsDeleted = false,
+                            Name = "PlayStation 5 Console",
+                            Price = 24000f,
+                            SalesCount = 850,
+                            SubCategoryId = 20
+                        },
+                        new
+                        {
+                            Id = 58,
+                            AverageRating = 4.8f,
+                            Brand = "Microsoft",
+                            Description = "4K gaming console powered by 12 teraflops of raw graphic processing power.",
+                            DiscountPercentage = 5,
+                            ImageUrl1 = "images/Products/Xbox_Series_X/image_1.png",
+                            ImageUrl2 = "images/Products/Xbox_Series_X/image_2.jpg",
+                            ImageUrl3 = "images/Products/Xbox_Series_X/image_3.jpg",
+                            IsDeleted = false,
+                            Name = "Xbox Series X",
+                            Price = 23000f,
+                            SalesCount = 620,
+                            SubCategoryId = 20
+                        },
+                        new
+                        {
+                            Id = 59,
+                            AverageRating = 4.6f,
+                            Brand = "Sony",
+                            Description = "High-performance customizable wireless controller built for competitive gaming.",
+                            DiscountPercentage = 10,
+                            ImageUrl1 = "images/Products/DualSense_Edge_Controller/image_1.jpg",
+                            ImageUrl2 = "images/Products/DualSense_Edge_Controller/image_2.jpg",
+                            ImageUrl3 = "images/Products/DualSense_Edge_Controller/image_3.jpg",
+                            IsDeleted = false,
+                            Name = "DualSense Edge Controller",
+                            Price = 8500f,
+                            SalesCount = 270,
+                            SubCategoryId = 21
+                        },
+                        new
+                        {
+                            Id = 60,
+                            AverageRating = 4.5f,
+                            Brand = "TP-Link",
+                            Description = "Dual-Band Gigabit Wi-Fi 6 router providing ultra-fast speeds up to 5400 Mbps.",
+                            DiscountPercentage = 12,
+                            ImageUrl1 = "images/Products/TP-Link_Archer_AX73_Wi-Fi_6_Router/image_1.jpg",
+                            ImageUrl2 = "images/Products/TP-Link_Archer_AX73_Wi-Fi_6_Router/image_2.jpg",
+                            ImageUrl3 = "images/Products/TP-Link_Archer_AX73_Wi-Fi_6_Router/image_3.jpg",
+                            IsDeleted = false,
+                            Name = "TP-Link Archer AX73 Wi-Fi 6 Router",
+                            Price = 5500f,
+                            SalesCount = 490,
+                            SubCategoryId = 22
+                        },
+                        new
+                        {
+                            Id = 61,
+                            AverageRating = 4.7f,
+                            Brand = "Asus",
+                            Description = "High-efficiency Wi-Fi 6 router featuring dual 2.5G ports and commercial-grade security.",
+                            DiscountPercentage = 7,
+                            ImageUrl1 = "images/Products/Asus_RT-AX88U_Pro_Gaming_Router/image_1.png",
+                            ImageUrl2 = "images/Products/Asus_RT-AX88U_Pro_Gaming_Router/image_2.jpg",
+                            ImageUrl3 = "images/Products/Asus_RT-AX88U_Pro_Gaming_Router/image_3.jpg",
+                            IsDeleted = false,
+                            Name = "Asus RT-AX88U Pro Gaming Router",
+                            Price = 12500f,
+                            SalesCount = 180,
+                            SubCategoryId = 23
                         });
                 });
 

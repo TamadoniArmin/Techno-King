@@ -832,6 +832,197 @@ namespace Connection.Configurations
                     ImageUrl2 = "images/Products/Wanbo_T2_Max_Portable_Projector/image_2.jpg",
                     ImageUrl3 = "images/Products/Wanbo_T2_Max_Portable_Projector/image_3.jpg",
                     IsDeleted = false
+                },
+                // ---------------- Smartwatches (SubCategoryId = 16) ----------------
+                new Product
+                {
+                    Id = 51,
+                    Name = "Apple Watch Series 9",
+                    Price = 16000.00f,
+                    Description = "Advanced smartwatch featuring S9 SiP, Double Tap gesture, and bright Always-On Retina display.",
+                    Brand = "Apple",
+                    DiscountPercentage = 5,
+                    SubCategoryId = 16,
+                    AverageRating = 4.8f,
+                    SalesCount = 520,
+                    ImageUrl1 = "images/Products/Apple_Watch_Series_9/image_1.jpg",
+                    ImageUrl2 = "images/Products/Apple_Watch_Series_9/image_2.jpg",
+                    ImageUrl3 = "images/Products/Apple_Watch_Series_9/image_3.jpg",
+                    IsDeleted = false
+                },
+                new Product
+                {
+                    Id = 52,
+                    Name = "Samsung Galaxy Watch 6",
+                    Price = 12000.00f,
+                    Description = "Comprehensive health tracker with personalized heart rate zones and sleep coaching.",
+                    Brand = "Samsung",
+                    DiscountPercentage = 10,
+                    SubCategoryId = 16,
+                    AverageRating = 4.6f,
+                    SalesCount = 410,
+                    ImageUrl1 = "images/Products/Samsung_Galaxy_Watch_6/image_1.jpg",
+                    ImageUrl2 = "images/Products/Samsung_Galaxy_Watch_6/image_2.jpg",
+                    ImageUrl3 = "images/Products/Samsung_Galaxy_Watch_6/image_3.jpg",
+                    IsDeleted = false
+                },
+                
+                // ---------------- Fitness Bands (SubCategoryId = 17) ----------------
+                new Product
+                {
+                    Id = 53,
+                    Name = "Xiaomi Smart Band 8",
+                    Price = 2000.00f,
+                    Description = "Lightweight fitness band featuring 1.62-inch AMOLED display and 16-day battery life.",
+                    Brand = "Xiaomi",
+                    DiscountPercentage = 15,
+                    SubCategoryId = 17,
+                    AverageRating = 4.5f,
+                    SalesCount = 1100,
+                    ImageUrl1 = "images/Products/Xiaomi_Smart_Band_8/image_1.jpg",
+                    ImageUrl2 = "images/Products/Xiaomi_Smart_Band_8/image_2.png",
+                    ImageUrl3 = "images/Products/Xiaomi_Smart_Band_8/image_3.jpg",
+                    IsDeleted = false
+                },
+                
+                // ---------------- DSLR & Mirrorless (SubCategoryId = 18) ----------------
+                new Product
+                {
+                    Id = 54,
+                    Name = "Sony Alpha A7 IV",
+                    Price = 95000.00f,
+                    Description = "Full-frame mirrorless camera with 33MP Exmor R sensor and 4K 60p video capabilities.",
+                    Brand = "Sony",
+                    DiscountPercentage = 0,
+                    SubCategoryId = 18,
+                    AverageRating = 4.9f,
+                    SalesCount = 140,
+                    ImageUrl1 = "images/Products/Sony_Alpha_A7_IV/image_1.jpg",
+                    ImageUrl2 = "images/Products/Sony_Alpha_A7_IV/image_2.jpg",
+                    ImageUrl3 = "images/Products/Sony_Alpha_A7_IV/image_3.jpg",
+                    IsDeleted = false
+                },
+                new Product
+                {
+                    Id = 55,
+                    Name = "Canon EOS R6 Mark II",
+                    Price = 88000.00f,
+                    Description = "Versatile full-frame camera offering 24.2MP sensor and up to 40 fps continuous shooting.",
+                    Brand = "Canon",
+                    DiscountPercentage = 5,
+                    SubCategoryId = 18,
+                    AverageRating = 4.8f,
+                    SalesCount = 95,
+                    ImageUrl1 = "images/Products/Canon_EOS_R6_Mark_II/image_1.webp",
+                    ImageUrl2 = "images/Products/Canon_EOS_R6_Mark_II/image_2.jpg",
+                    ImageUrl3 = "images/Products/Canon_EOS_R6_Mark_II/image_3.webp",
+                    IsDeleted = false
+                },
+                
+                // ---------------- Action Cameras (SubCategoryId = 19) ----------------
+                new Product
+                {
+                    Id = 56,
+                    Name = "GoPro HERO12 Black",
+                    Price = 18000.00f,
+                    Description = "Rugged action camera featuring 5.3K60 video recording and HyperSmooth 6.0 stabilization.",
+                    Brand = "GoPro",
+                    DiscountPercentage = 8,
+                    SubCategoryId = 19,
+                    AverageRating = 4.7f,
+                    SalesCount = 380,
+                    ImageUrl1 = "images/Products/GoPro_HERO12_Black/image_1.png",
+                    ImageUrl2 = "images/Products/GoPro_HERO12_Black/image_2.jpg",
+                    ImageUrl3 = "images/Products/GoPro_HERO12_Black/image_3.jpg",
+                    IsDeleted = false
+                },
+                
+                // ---------------- Gaming Consoles (SubCategoryId = 20) ----------------
+                new Product
+                {
+                    Id = 57,
+                    Name = "PlayStation 5 Console",
+                    Price = 24000.00f,
+                    Description = "Next-gen gaming console with ultra-high speed SSD and DualSense wireless controller support.",
+                    Brand = "Sony",
+                    DiscountPercentage = 0,
+                    SubCategoryId = 20,
+                    AverageRating = 4.9f,
+                    SalesCount = 850,
+                    ImageUrl1 = "images/Products/PlayStation_5_Console/image_1.png",
+                    ImageUrl2 = "images/Products/PlayStation_5_Console/image_2.png",
+                    ImageUrl3 = "images/Products/PlayStation_5_Console/image_3.png",
+                    IsDeleted = false
+                },
+                new Product
+                {
+                    Id = 58,
+                    Name = "Xbox Series X",
+                    Price = 23000.00f,
+                    Description = "4K gaming console powered by 12 teraflops of raw graphic processing power.",
+                    Brand = "Microsoft",
+                    DiscountPercentage = 5,
+                    SubCategoryId = 20,
+                    AverageRating = 4.8f,
+                    SalesCount = 620,
+                    ImageUrl1 = "images/Products/Xbox_Series_X/image_1.png",
+                    ImageUrl2 = "images/Products/Xbox_Series_X/image_2.jpg",
+                    ImageUrl3 = "images/Products/Xbox_Series_X/image_3.jpg",
+                    IsDeleted = false
+                },
+                
+                // ---------------- Gaming Accessories (SubCategoryId = 21) ----------------
+                new Product
+                {
+                    Id = 59,
+                    Name = "DualSense Edge Controller",
+                    Price = 8500.00f,
+                    Description = "High-performance customizable wireless controller built for competitive gaming.",
+                    Brand = "Sony",
+                    DiscountPercentage = 10,
+                    SubCategoryId = 21,
+                    AverageRating = 4.6f,
+                    SalesCount = 270,
+                    ImageUrl1 = "images/Products/DualSense_Edge_Controller/image_1.jpg",
+                    ImageUrl2 = "images/Products/DualSense_Edge_Controller/image_2.jpg",
+                    ImageUrl3 = "images/Products/DualSense_Edge_Controller/image_3.jpg",
+                    IsDeleted = false
+                },
+                
+                // ---------------- Wi-Fi Routers (SubCategoryId = 22) ----------------
+                new Product
+                {
+                    Id = 60,
+                    Name = "TP-Link Archer AX73 Wi-Fi 6 Router",
+                    Price = 5500.00f,
+                    Description = "Dual-Band Gigabit Wi-Fi 6 router providing ultra-fast speeds up to 5400 Mbps.",
+                    Brand = "TP-Link",
+                    DiscountPercentage = 12,
+                    SubCategoryId = 22,
+                    AverageRating = 4.5f,
+                    SalesCount = 490,
+                    ImageUrl1 = "images/Products/TP-Link_Archer_AX73_Wi-Fi_6_Router/image_1.jpg",
+                    ImageUrl2 = "images/Products/TP-Link_Archer_AX73_Wi-Fi_6_Router/image_2.jpg",
+                    ImageUrl3 = "images/Products/TP-Link_Archer_AX73_Wi-Fi_6_Router/image_3.jpg",
+                    IsDeleted = false
+                },
+                
+                // ---------------- Modems & Switches (SubCategoryId = 23) ----------------
+                new Product
+                {
+                    Id = 61,
+                    Name = "Asus RT-AX88U Pro Gaming Router",
+                    Price = 12500.00f,
+                    Description = "High-efficiency Wi-Fi 6 router featuring dual 2.5G ports and commercial-grade security.",
+                    Brand = "Asus",
+                    DiscountPercentage = 7,
+                    SubCategoryId = 23,
+                    AverageRating = 4.7f,
+                    SalesCount = 180,
+                    ImageUrl1 = "images/Products/Asus_RT-AX88U_Pro_Gaming_Router/image_1.png",
+                    ImageUrl2 = "images/Products/Asus_RT-AX88U_Pro_Gaming_Router/image_2.jpg",
+                    ImageUrl3 = "images/Products/Asus_RT-AX88U_Pro_Gaming_Router/image_3.jpg",
+                    IsDeleted = false
                 }
             );
         }
