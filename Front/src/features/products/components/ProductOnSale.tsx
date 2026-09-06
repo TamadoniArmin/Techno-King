@@ -9,7 +9,7 @@ import { useGetOnSaleProducts } from "../hooks/useGetOnSaleProducts";
 import { BASE_URL } from "../../../shared/api/base";
 
 const ProductOnSale = () => {
-  const { data: productsOnSale, isLoading } = useGetOnSaleProducts();
+  const { data: productsOnSale = [], isLoading } = useGetOnSaleProducts();
 
   if (isLoading) return <span>LOADING ... </span>;
 
@@ -22,7 +22,6 @@ const ProductOnSale = () => {
           className="pointer-events-none absolute top-0 left-[-1.5rem] z-10 w-[110px] opacity-40 sm:left-[-2rem] sm:w-[150px] sm:opacity-50 md:w-[340px] md:opacity-100"
         />
 
-        
         <div className="z-20 flex shrink-0 flex-row items-center justify-between md:w-[14.5rem] md:flex-col md:justify-start">
           <div className="flex flex-col items-start text-white md:mt-[3rem] md:items-center">
             <h3 className="text-lg font-bold sm:text-xl md:text-[1.5rem]">
@@ -43,55 +42,62 @@ const ProductOnSale = () => {
           </div>
         </div>
 
-        <div className="relative z-20 w-full min-w-0 flex-1 overflow-hidden pb-12 md:pb-0">
-          <Swiper
-            className="h-full w-full"
-            modules={[Navigation]}
-            navigation={{
-              nextEl: ".my-button-next",
-              prevEl: ".my-button-prev",
-            }}
-            slidesPerView="auto"
-            spaceBetween={12}
-            breakpoints={{
-              480: { spaceBetween: 16 },
-              768: { spaceBetween: 20 },
-              1024: { spaceBetween: 24 },
-              1280: { spaceBetween: 24 },
-            }}
-          >
-            {productsOnSale.map((item) => (
-              <SwiperSlide
-                key={item.id}
-                className="xs:!w-[9.5rem] flex !w-[8.5rem] justify-center sm:!w-[10rem] md:!w-[11.5rem]"
-              >
-                <div className="my-2 w-full md:my-[2.75rem]">
-                  <div className="relative flex flex-col rounded-[0.25rem] bg-white p-[0.5rem] shadow-sm">
-                    <span className="absolute top-2 left-0 z-10 rounded-r-[0.625rem] bg-[#FDDBC9] px-[0.37rem] py-[0.25rem] text-xs text-[#F45E0C] sm:text-sm">
-                      -{item.discountPercentage}%
-                    </span>
+        <div className="relative z-20 flex w-full min-w-0 flex-1 flex-col">
+          <div className="w-full overflow-hidden">
+            <Swiper
+              className="h-full w-full"
+              modules={[Navigation]}
+              navigation={{
+                nextEl: ".my-button-next",
+                prevEl: ".my-button-prev",
+              }}
+              slidesPerView="auto"
+              spaceBetween={12}
+              slidesOffsetAfter={16}
+              breakpoints={{
+                480: { spaceBetween: 16, slidesOffsetAfter: 16 },
+                768: { spaceBetween: 20, slidesOffsetAfter: 20 },
+                1024: { spaceBetween: 24, slidesOffsetAfter: 24 },
+                1280: { spaceBetween: 24, slidesOffsetAfter: 24 },
+              }}
+            >
+              {productsOnSale.map((item) => (
+                <SwiperSlide
+                  key={item.id}
+                  className="xs:!w-[9.5rem] !flex !h-auto !w-[8.5rem] justify-center sm:!w-[10rem] md:!w-[11.5rem]"
+                >
+                  <div className="my-2 w-full">
+                    <div className="relative flex h-full flex-col rounded-[0.25rem] bg-white p-[0.5rem] shadow-sm">
+                      <span className="absolute top-2 left-0 z-10 rounded-r-[0.625rem] bg-[#FDDBC9] px-[0.37rem] py-[0.25rem] text-xs text-[#F45E0C] sm:text-sm">
+                        -{item.discountPercentage}%
+                      </span>
 
-                    <img
-                      src={`${BASE_URL}/${item.ImageUrl1}`}
-                      alt={item.name}
-                      className="mt-6 mb-2 h-20 w-full object-contain sm:h-24 md:h-28"
-                    />
+                      <img
+                        src={`${BASE_URL}/${item.imageUrl1}`}
+                        alt={item.name}
+                        className="mt-6 mb-2 h-20 w-full object-contain sm:h-24 md:h-28"
+                      />
 
-                    <span className="mb-[0.5rem] text-sm font-medium text-gray-800 md:text-base">
-                      {item.name}
-                    </span>
+                      <span className="mb-2 min-h-[2.5rem] text-sm font-medium md:text-base md:font-light">
+                        {item.name}
+                      </span>
 
-                    <div className="flex justify-between text-sm font-semibold md:text-base">
-                      <span>${item.originalPrice}</span>
-                      <span>${item.finalPrice}</span>
+                      <div className="mt-auto flex justify-between text-sm font-semibold md:text-base">
+                        <span className="line-through text-gray-500 text-sm">
+                          ${item.originalPrice}
+                        </span>
+                        <span className="font-medium text-gray-800">
+                          ${item.finalPrice}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
 
-          <div className="absolute right-0 bottom-0 z-30 flex gap-2 md:right-[0.5rem] md:bottom-[0.5rem]">
+          <div className="mt-3 flex shrink-0 justify-end gap-2 md:my-2 mr-2">
             <button
               aria-label="Previous products"
               className="my-button-prev transition-opacity hover:opacity-80"
