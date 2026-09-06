@@ -17,7 +17,7 @@ const HomePage = () => {
     <div>
       <HeroSection />
 
-      <ProductSearch />
+      {/* <ProductSearch /> */}
       <CategoryList />
       {/* <ProductOnSale /> */}
       <ProductSegmentation data={data} title="New Products" />
