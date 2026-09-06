@@ -2,7 +2,7 @@ import heroBanner from "/hero-banner.png";
 
 const HeroSection = () => {
   return (
-    <div className="mx-auto flex max-w-[1440px] flex-col items-center justify-between px-5 pb-10 md:flex-row md:items-start md:px-[6.8rem] md:pb-[3.5rem]">
+    <div className="mx-auto flex max-w-[1440px] flex-col items-center justify-between px-4 sm:px-8 md:px-[4rem] lg:px-[6.8rem] pb-10 md:flex-row md:items-start md:pb-[3.5rem]">
       {/* بخش متن و دکمه */}
       <div className="order-2 mt-10 flex flex-col items-center text-center md:order-1 md:mt-0 md:items-start md:text-left">
         <div>
