@@ -12,8 +12,10 @@ using Microsoft.OpenApi;
 using Serilog;
 using System;
 using System.Reflection;
+using Techno_KingAppService.Techno_King.Categories;
 using Techno_KingAppService.Techno_King.Products;
 using Techno_KingAppService.Techno_King.Users;
+using Techno_KingService.Techno_King.Categories;
 using Techno_KingService.Techno_King.Products;
 using Techno_KingService.Techno_King.Techno_GeneralService;
 using Techno_KingService.Techno_King.Users;
@@ -62,6 +64,9 @@ builder.Services.AddScoped<IGeneralService, GeneralService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserAppService, UserAppService>();
+builder.Services.AddScoped<ICategoriesRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICategoryAppService, CategoryAppService>();
 
 // Add services to the container.
 builder.Services.AddControllers();
