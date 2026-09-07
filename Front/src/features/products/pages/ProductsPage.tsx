@@ -2,6 +2,7 @@ import { FaSortAmountDown } from "react-icons/fa";
 import { NavLink, useSearchParams } from "react-router-dom";
 import { useGetByNameProducts } from "../hooks/useGetByNameProducts";
 import ProductCardSkeleton from "../components/ProductCardSkeleton";
+import { BASE_URL } from "../../../shared/api/base";
 
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
@@ -59,7 +60,7 @@ const ProductsPage = () => {
               >
                 <div className="flex aspect-[4/3] w-full items-center justify-center">
                   <img
-                    src="/category/laptop.png"
+                    src={`${BASE_URL}/${item.imageUrl1}`}
                     alt={item.name}
                     className="h-full w-full object-contain"
                   />

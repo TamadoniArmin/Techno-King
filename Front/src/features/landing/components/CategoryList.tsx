@@ -7,7 +7,7 @@ import smartWatch from "/category/smart-watch.png";
 
 const CategoryList = () => {
   return (
-    <ul className="my-12 grid grid-cols-2 gap-6 px-[6.8rem] sm:grid-cols-3 lg:grid-cols-6">
+    <ul className="my-12 grid grid-cols-2 gap-6 px-4 sm:px-8 md:px-[4rem] lg:px-[6.8rem] sm:grid-cols-3 lg:grid-cols-6">
       <li className="flex min-h-[170px] flex-col items-center justify-center rounded-xl bg-white p-4 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-lg">
         <img
           className="h-37 w-37 object-contain"
