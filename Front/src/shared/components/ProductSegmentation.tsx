@@ -1,7 +1,7 @@
 import arrowRight from "/icons/arrow-circle-right.svg";
-import bannerImg from "/category/laptop.png";
 import starIcon from "/icons/star.svg";
 import type { Product } from "../../types/product.types";
+import { BASE_URL } from "../api/base";
 
 type ProductSegmentaionProps = { title: string; data: Product[] };
 
@@ -24,11 +24,11 @@ const ProductSegmentation = ({ title, data }: ProductSegmentaionProps) => {
             key={item.id}
             className="flex flex-col rounded-lg p-3 shadow-[-2px_2px_15px_-1px_#7171712b] sm:p-4"
           >
-            <div>
+            <div className="flex h-40 items-center justify-center sm:h-44">
               <img
-                src={bannerImg}
+                src={`${BASE_URL}/${item.imageUrl1}`}
                 alt={item.name}
-                className="mx-auto h-auto w-full max-w-[11.25rem]"
+                className="h-full w-full max-w-[11.25rem] object-contain"
               />
             </div>
 
