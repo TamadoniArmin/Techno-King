@@ -17,6 +17,8 @@ namespace App.Domain.Core.Techno_King.Service
         public Task<List<ProductDTOs>> GetProductsSortedBySalesCountAsync(bool ascending, CancellationToken cancellationToken);
         //By Discount Percentage
         public Task<List<ProductDTOs>> GetProductsSortedByDiscountPercentageAsync(bool ascending, CancellationToken cancellationToken);
+        //By CreatedAt
+        public Task<List<ProductDTOs>> GetProductsSortedByCreatedAtAsync(bool ascending, CancellationToken cancellationToken);
         #endregion
         public Task<List<ProductDTOs>> GetAllProductsAsync(CancellationToken cancellationToken);
         public Task<ProductDTOs?> GetProductByIdAsync(int id, CancellationToken cancellationToken);

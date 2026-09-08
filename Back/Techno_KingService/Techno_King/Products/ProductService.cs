@@ -73,6 +73,19 @@ namespace Techno_KingService.Techno_King.Products
             }
         }
         #endregion
+        #region CreatedAt Sorting
+        public async Task<List<ProductDTOs>> GetProductsSortedByCreatedAtAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            if (ascending)
+            {
+                return await _productRepository.GetProductsSortedByCreatedAtAscendingAsync(cancellationToken);
+            }
+            else
+            {
+                return await _productRepository.GetProductsSortedByCreatedAtDescendingAsync(cancellationToken);
+            }
+        }
+        #endregion
         #endregion
         public async Task<List<ProductDTOs>> GetAllProductsAsync(CancellationToken cancellationToken)
         {

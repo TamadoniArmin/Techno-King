@@ -123,6 +123,12 @@ namespace Techno_King_WebAPI.Controllers
             var products = await productAppService.GetProductsSortedByDiscountPercentageAsync(ascending, cancellationToken);
             return Ok(products);
         }
+        [HttpGet("SortByCreatedAt")]
+        public async Task<IActionResult> GetProductsSortedByCreatedAtAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            var products = await productAppService.GetProductsSortedByCreatedAtAsync(ascending, cancellationToken);
+            return Ok(products);
+        }
         #endregion
     }
 }

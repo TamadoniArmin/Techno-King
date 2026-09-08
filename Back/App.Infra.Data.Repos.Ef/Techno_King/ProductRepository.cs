@@ -130,6 +130,59 @@ namespace App.Infra.Data.Repos.Ef.Techno_King
         }
 
         #endregion
+        #region CreatedAt Sorting
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByCreatedAtAscendingAsync(CancellationToken cancellationToken)
+        {
+            return await _context.Products
+                .AsNoTracking()
+                .Where(x => !x.IsDeleted)
+                .OrderBy(x => x.CreatedAt)
+                .Select(x => new ProductDTOs
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Price = x.Price,
+                    Description = x.Description,
+                    Brand = x.Brand,
+                    DiscountPercentage = x.DiscountPercentage,
+                    SubCategoryId = x.SubCategoryId,
+                    AverageRating = x.AverageRating,
+                    SalesCount = x.SalesCount,
+                    ImageUrl1 = x.ImageUrl1,
+                    ImageUrl2 = x.ImageUrl2,
+                    ImageUrl3 = x.ImageUrl3,
+                    IsDeleted = x.IsDeleted
+                })
+                .ToListAsync(cancellationToken);
+        }
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByCreatedAtDescendingAsync(CancellationToken cancellationToken)
+        {
+            return await _context.Products
+                .AsNoTracking()
+                .Where(x => !x.IsDeleted)
+                .OrderByDescending(x => x.CreatedAt)
+                .Select(x => new ProductDTOs
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Price = x.Price,
+                    Description = x.Description,
+                    Brand = x.Brand,
+                    DiscountPercentage = x.DiscountPercentage,
+                    SubCategoryId = x.SubCategoryId,
+                    AverageRating = x.AverageRating,
+                    SalesCount = x.SalesCount,
+                    ImageUrl1 = x.ImageUrl1,
+                    ImageUrl2 = x.ImageUrl2,
+                    ImageUrl3 = x.ImageUrl3,
+                    IsDeleted = x.IsDeleted
+                })
+                .ToListAsync(cancellationToken);
+        }
+
+        #endregion
         #endregion
         public async Task<List<ProductDTOs>> GetAllProductsAsync(CancellationToken cancellationToken)
         {
