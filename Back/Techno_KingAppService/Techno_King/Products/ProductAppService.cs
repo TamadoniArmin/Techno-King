@@ -50,6 +50,38 @@ namespace Techno_KingAppService.Techno_King.Products
         }
         #endregion
         #region Read
+        #region Sorting
+        #region Price Sorting
+        public async Task<List<ProductDTOs>> GetProductsSortedByPriceAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            return await _productService.GetProductsSortedByPriceAsync(ascending, cancellationToken);
+        }
+        #endregion
+        #region Rating Sorting
+        public async Task<List<ProductDTOs>> GetProductsSortedByRatingAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            return await _productService.GetProductsSortedByRatingAsync(ascending, cancellationToken);
+        }
+        #endregion
+        #region Sales Count Sorting
+        public async Task<List<ProductDTOs>> GetProductsSortedBySalesCountAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            return await _productService.GetProductsSortedBySalesCountAsync(ascending, cancellationToken);
+        }
+        #endregion
+        #region Discount Percentage Sorting
+        public async Task<List<ProductDTOs>> GetProductsSortedByDiscountPercentageAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            return await _productService.GetProductsSortedByDiscountPercentageAsync(ascending, cancellationToken);
+        }
+        #endregion
+        #region CreatedAt Sorting
+        public async Task<List<ProductDTOs>> GetProductsSortedByCreatedAtAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            return await _productService.GetProductsSortedByCreatedAtAsync(ascending, cancellationToken);
+        }
+        #endregion
+        #endregion
         public async Task<List<ProductDTOs>> GetAllProductsAsync(CancellationToken cancellationToken)
         {
             return await _productService.GetAllProductsAsync(cancellationToken);

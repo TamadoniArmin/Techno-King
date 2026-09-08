@@ -24,6 +24,7 @@ namespace Techno_King_WebAPI.Controllers
             }
         }
         #endregion
+        #region ReadOnly
         [HttpGet("GetById")]
         public async Task<IActionResult> GetProduct(int id, CancellationToken cancellationToken)
         {
@@ -96,5 +97,38 @@ namespace Techno_King_WebAPI.Controllers
             var products = await productAppService.GetTopNHighestRatedProductsAsync(n, cancellationToken);
             return Ok(products);
         }
+        #endregion
+        #region Sorting
+        [HttpGet("SortByPrice")]
+        public async Task<IActionResult> GetProductsSortedByPriceAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            var products = await productAppService.GetProductsSortedByPriceAsync(ascending, cancellationToken);
+            return Ok(products);
+        }
+        [HttpGet("SortByRating")]
+        public async Task<IActionResult> GetProductsSortedByRatingAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            var products = await productAppService.GetProductsSortedByRatingAsync(ascending, cancellationToken);
+            return Ok(products);
+        }
+        [HttpGet("SortBySalesCount")]
+        public async Task<IActionResult> GetProductsSortedBySalesCountAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            var products = await productAppService.GetProductsSortedBySalesCountAsync(ascending, cancellationToken);
+            return Ok(products);
+        }
+        [HttpGet("SortByDiscountPercentage")]
+        public async Task<IActionResult> GetProductsSortedByDiscountPercentageAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            var products = await productAppService.GetProductsSortedByDiscountPercentageAsync(ascending, cancellationToken);
+            return Ok(products);
+        }
+        [HttpGet("SortByCreatedAt")]
+        public async Task<IActionResult> GetProductsSortedByCreatedAtAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            var products = await productAppService.GetProductsSortedByCreatedAtAsync(ascending, cancellationToken);
+            return Ok(products);
+        }
+        #endregion
     }
 }

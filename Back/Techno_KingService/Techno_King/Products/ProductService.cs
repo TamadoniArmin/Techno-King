@@ -20,6 +20,73 @@ namespace Techno_KingService.Techno_King.Products
         }
         #endregion
         #region Read
+        #region Sorting
+        #region Price Sorting
+        public Task<List<ProductDTOs>> GetProductsSortedByPriceAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            if (ascending) 
+            { 
+                return _productRepository.GetProductsSortedByPriceAscendingAsync(cancellationToken);
+            }
+            else
+            {
+                return _productRepository.GetProductsSortedByPriceDescendingAsync(cancellationToken);
+            }
+        }
+        #endregion
+        #region Rating Sorting
+        public async Task<List<ProductDTOs>> GetProductsSortedByRatingAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            if (ascending)
+            {
+                return await _productRepository.GetProductsSortedByRatingAscendingAsync(cancellationToken);
+            }
+            else
+            {
+                return await _productRepository.GetProductsSortedByRatingDescendingAsync(cancellationToken);
+            }
+        }
+        #endregion
+        #region Sales Count Sorting
+        public async Task<List<ProductDTOs>> GetProductsSortedBySalesCountAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            if (ascending)
+            {
+                return await _productRepository.GetProductsSortedBySalesCountAscendingAsync(cancellationToken);
+            }
+            else
+            {
+                return await _productRepository.GetProductsSortedBySalesCountDescendingAsync(cancellationToken);
+            }
+        }
+        #endregion
+        #region Discount Percentage Sorting
+        public async Task<List<ProductDTOs>> GetProductsSortedByDiscountPercentageAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            if (ascending)
+            {
+                return await _productRepository.GetProductsSortedByDiscountPercentageAscendingAsync(cancellationToken);
+            }
+            else
+            {
+                return await _productRepository.GetProductsSortedByDiscountPercentageDescendingAsync(cancellationToken);
+            }
+        }
+        #endregion
+        #region CreatedAt Sorting
+        public async Task<List<ProductDTOs>> GetProductsSortedByCreatedAtAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            if (ascending)
+            {
+                return await _productRepository.GetProductsSortedByCreatedAtAscendingAsync(cancellationToken);
+            }
+            else
+            {
+                return await _productRepository.GetProductsSortedByCreatedAtDescendingAsync(cancellationToken);
+            }
+        }
+        #endregion
+        #endregion
         public async Task<List<ProductDTOs>> GetAllProductsAsync(CancellationToken cancellationToken)
         {
             return await _productRepository.GetAllProductsAsync(cancellationToken);

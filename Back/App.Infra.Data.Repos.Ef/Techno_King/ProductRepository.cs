@@ -16,6 +16,32 @@ namespace App.Infra.Data.Repos.Ef.Techno_King
             _context = appDbContext;
         }
         #endregion
+        #region Private Helper Methods
+
+        private IQueryable<ProductDTOs> GetBaseProductQuery()
+        {
+            return _context.Products
+                .AsNoTracking()
+                .Where(x => !x.IsDeleted)
+                .Select(x => new ProductDTOs
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Price = x.Price,
+                    Description = x.Description,
+                    Brand = x.Brand,
+                    DiscountPercentage = x.DiscountPercentage,
+                    SubCategoryId = x.SubCategoryId,
+                    AverageRating = x.AverageRating,
+                    SalesCount = x.SalesCount,
+                    ImageUrl1 = x.ImageUrl1,
+                    ImageUrl2 = x.ImageUrl2,
+                    ImageUrl3 = x.ImageUrl3,
+                    IsDeleted = x.IsDeleted
+                });
+        }
+
+        #endregion
         #region Create
         public async Task<bool> AddProductasync(NewProductDTOs newProductDTOs, CancellationToken cancellationToken)
         {
@@ -35,6 +61,129 @@ namespace App.Infra.Data.Repos.Ef.Techno_King
         }
         #endregion
         #region Read
+        #region Sorting
+        #region Price Sorting
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByPriceAscendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderBy(x => x.Price)
+                .ToListAsync(cancellationToken);
+        }
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByPriceDescendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderByDescending(x => x.Price)
+                .ToListAsync(cancellationToken);
+        }
+
+        #endregion
+        #region Rating Sorting
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByRatingAscendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderBy(x => x.AverageRating)
+                .ToListAsync(cancellationToken);
+        }
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByRatingDescendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderByDescending(x => x.AverageRating)
+                .ToListAsync(cancellationToken);
+        }
+
+        #endregion
+        #region Sales Count Sorting
+
+        public async Task<List<ProductDTOs>> GetProductsSortedBySalesCountAscendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderBy(x => x.SalesCount)
+                .ToListAsync(cancellationToken);
+        }
+
+        public async Task<List<ProductDTOs>> GetProductsSortedBySalesCountDescendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderByDescending(x => x.SalesCount)
+                .ToListAsync(cancellationToken);
+        }
+
+        #endregion
+        #region Discount Percentage Sorting
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByDiscountPercentageAscendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderBy(x => x.DiscountPercentage)
+                .ToListAsync(cancellationToken);
+        }
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByDiscountPercentageDescendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderByDescending(x => x.DiscountPercentage)
+                .ToListAsync(cancellationToken);
+        }
+
+        #endregion
+        #region CreatedAt Sorting
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByCreatedAtAscendingAsync(CancellationToken cancellationToken)
+        {
+            return await _context.Products
+                .AsNoTracking()
+                .Where(x => !x.IsDeleted)
+                .OrderBy(x => x.CreatedAt)
+                .Select(x => new ProductDTOs
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Price = x.Price,
+                    Description = x.Description,
+                    Brand = x.Brand,
+                    DiscountPercentage = x.DiscountPercentage,
+                    SubCategoryId = x.SubCategoryId,
+                    AverageRating = x.AverageRating,
+                    SalesCount = x.SalesCount,
+                    ImageUrl1 = x.ImageUrl1,
+                    ImageUrl2 = x.ImageUrl2,
+                    ImageUrl3 = x.ImageUrl3,
+                    IsDeleted = x.IsDeleted
+                })
+                .ToListAsync(cancellationToken);
+        }
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByCreatedAtDescendingAsync(CancellationToken cancellationToken)
+        {
+            return await _context.Products
+                .AsNoTracking()
+                .Where(x => !x.IsDeleted)
+                .OrderByDescending(x => x.CreatedAt)
+                .Select(x => new ProductDTOs
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Price = x.Price,
+                    Description = x.Description,
+                    Brand = x.Brand,
+                    DiscountPercentage = x.DiscountPercentage,
+                    SubCategoryId = x.SubCategoryId,
+                    AverageRating = x.AverageRating,
+                    SalesCount = x.SalesCount,
+                    ImageUrl1 = x.ImageUrl1,
+                    ImageUrl2 = x.ImageUrl2,
+                    ImageUrl3 = x.ImageUrl3,
+                    IsDeleted = x.IsDeleted
+                })
+                .ToListAsync(cancellationToken);
+        }
+
+        #endregion
+        #endregion
         public async Task<List<ProductDTOs>> GetAllProductsAsync(CancellationToken cancellationToken)
         {
             return await _context.Products
