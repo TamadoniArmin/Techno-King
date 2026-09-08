@@ -57,6 +57,12 @@ namespace Techno_KingAppService.Techno_King.Products
             return await _productService.GetProductsSortedByPriceAsync(ascending, cancellationToken);
         }
         #endregion
+        #region Rating Sorting
+        public async Task<List<ProductDTOs>> GetProductsSortedByRatingAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            return await _productService.GetProductsSortedByRatingAsync(ascending, cancellationToken);
+        }
+        #endregion
         #endregion
         public async Task<List<ProductDTOs>> GetAllProductsAsync(CancellationToken cancellationToken)
         {

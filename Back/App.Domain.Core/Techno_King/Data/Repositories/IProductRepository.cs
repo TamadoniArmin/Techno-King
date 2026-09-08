@@ -14,6 +14,10 @@ namespace App.Domain.Core.Techno_King.Data.Repositories
         Task<List<ProductDTOs>> GetProductsSortedByPriceAscendingAsync(CancellationToken cancellationToken);
         Task<List<ProductDTOs>> GetProductsSortedByPriceDescendingAsync(CancellationToken cancellationToken);
         #endregion
+        #region Rating Sorting
+        Task<List<ProductDTOs>> GetProductsSortedByRatingAscendingAsync(CancellationToken cancellationToken);
+        Task<List<ProductDTOs>> GetProductsSortedByRatingDescendingAsync(CancellationToken cancellationToken);
+        #endregion
         #endregion
         public Task<List<ProductDTOs>> GetAllProductsAsync(CancellationToken cancellationToken);
         public Task<ProductDTOs?> GetProductByIdAsync(int id, CancellationToken cancellationToken);

@@ -79,6 +79,23 @@ namespace App.Infra.Data.Repos.Ef.Techno_King
         }
 
         #endregion
+        #region Rating Sorting
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByRatingAscendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderBy(x => x.AverageRating)
+                .ToListAsync(cancellationToken);
+        }
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByRatingDescendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderByDescending(x => x.AverageRating)
+                .ToListAsync(cancellationToken);
+        }
+
+        #endregion
         #endregion
         public async Task<List<ProductDTOs>> GetAllProductsAsync(CancellationToken cancellationToken)
         {

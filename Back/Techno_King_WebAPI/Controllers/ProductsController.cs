@@ -105,6 +105,12 @@ namespace Techno_King_WebAPI.Controllers
             var products = await productAppService.GetProductsSortedByPriceAsync(ascending, cancellationToken);
             return Ok(products);
         }
+        [HttpGet("SortByRating")]
+        public async Task<IActionResult> GetProductsSortedByRatingAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            var products = await productAppService.GetProductsSortedByRatingAsync(ascending, cancellationToken);
+            return Ok(products);
+        }
         #endregion
     }
 }
