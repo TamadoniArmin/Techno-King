@@ -96,6 +96,23 @@ namespace App.Infra.Data.Repos.Ef.Techno_King
         }
 
         #endregion
+        #region Sales Count Sorting
+
+        public async Task<List<ProductDTOs>> GetProductsSortedBySalesCountAscendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderBy(x => x.SalesCount)
+                .ToListAsync(cancellationToken);
+        }
+
+        public async Task<List<ProductDTOs>> GetProductsSortedBySalesCountDescendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderByDescending(x => x.SalesCount)
+                .ToListAsync(cancellationToken);
+        }
+
+        #endregion
         #endregion
         public async Task<List<ProductDTOs>> GetAllProductsAsync(CancellationToken cancellationToken)
         {
