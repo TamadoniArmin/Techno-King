@@ -16,6 +16,32 @@ namespace App.Infra.Data.Repos.Ef.Techno_King
             _context = appDbContext;
         }
         #endregion
+        #region Private Helper Methods
+
+        private IQueryable<ProductDTOs> GetBaseProductQuery()
+        {
+            return _context.Products
+                .AsNoTracking()
+                .Where(x => !x.IsDeleted)
+                .Select(x => new ProductDTOs
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Price = x.Price,
+                    Description = x.Description,
+                    Brand = x.Brand,
+                    DiscountPercentage = x.DiscountPercentage,
+                    SubCategoryId = x.SubCategoryId,
+                    AverageRating = x.AverageRating,
+                    SalesCount = x.SalesCount,
+                    ImageUrl1 = x.ImageUrl1,
+                    ImageUrl2 = x.ImageUrl2,
+                    ImageUrl3 = x.ImageUrl3,
+                    IsDeleted = x.IsDeleted
+                });
+        }
+
+        #endregion
         #region Create
         public async Task<bool> AddProductasync(NewProductDTOs newProductDTOs, CancellationToken cancellationToken)
         {
