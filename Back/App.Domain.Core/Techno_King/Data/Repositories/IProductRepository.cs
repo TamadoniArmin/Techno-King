@@ -9,6 +9,12 @@ namespace App.Domain.Core.Techno_King.Data.Repositories
         public Task<bool> AddProductasync(NewProductDTOs newProductDTOs, CancellationToken cancellationToken);
         #endregion
         #region Read
+        #region Sorting
+        #region Price Sorting
+        Task<List<ProductDTOs>> GetProductsSortedByPriceAscendingAsync(CancellationToken cancellationToken);
+        Task<List<ProductDTOs>> GetProductsSortedByPriceDescendingAsync(CancellationToken cancellationToken);
+        #endregion
+        #endregion
         public Task<List<ProductDTOs>> GetAllProductsAsync(CancellationToken cancellationToken);
         public Task<ProductDTOs?> GetProductByIdAsync(int id, CancellationToken cancellationToken);
         public Task<List<ProductDTOs>> GetProductsByCategoryIdAsync(int CategoryId, CancellationToken cancellationToken);

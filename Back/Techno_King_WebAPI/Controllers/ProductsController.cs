@@ -24,6 +24,7 @@ namespace Techno_King_WebAPI.Controllers
             }
         }
         #endregion
+        #region ReadOnly
         [HttpGet("GetById")]
         public async Task<IActionResult> GetProduct(int id, CancellationToken cancellationToken)
         {
@@ -96,5 +97,14 @@ namespace Techno_King_WebAPI.Controllers
             var products = await productAppService.GetTopNHighestRatedProductsAsync(n, cancellationToken);
             return Ok(products);
         }
+        #endregion
+        #region Sorting
+        [HttpGet("SortByPrice")]
+        public async Task<IActionResult> GetProductsSortedByPriceAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            var products = await productAppService.GetProductsSortedByPriceAsync(ascending, cancellationToken);
+            return Ok(products);
+        }
+        #endregion
     }
 }

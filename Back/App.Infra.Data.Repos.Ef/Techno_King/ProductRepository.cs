@@ -61,6 +61,25 @@ namespace App.Infra.Data.Repos.Ef.Techno_King
         }
         #endregion
         #region Read
+        #region Sorting
+        #region Price Sorting
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByPriceAscendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderBy(x => x.Price)
+                .ToListAsync(cancellationToken);
+        }
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByPriceDescendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderByDescending(x => x.Price)
+                .ToListAsync(cancellationToken);
+        }
+
+        #endregion
+        #endregion
         public async Task<List<ProductDTOs>> GetAllProductsAsync(CancellationToken cancellationToken)
         {
             return await _context.Products
