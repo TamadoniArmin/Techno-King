@@ -113,6 +113,23 @@ namespace App.Infra.Data.Repos.Ef.Techno_King
         }
 
         #endregion
+        #region Discount Percentage Sorting
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByDiscountPercentageAscendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderBy(x => x.DiscountPercentage)
+                .ToListAsync(cancellationToken);
+        }
+
+        public async Task<List<ProductDTOs>> GetProductsSortedByDiscountPercentageDescendingAsync(CancellationToken cancellationToken)
+        {
+            return await GetBaseProductQuery()
+                .OrderByDescending(x => x.DiscountPercentage)
+                .ToListAsync(cancellationToken);
+        }
+
+        #endregion
         #endregion
         public async Task<List<ProductDTOs>> GetAllProductsAsync(CancellationToken cancellationToken)
         {

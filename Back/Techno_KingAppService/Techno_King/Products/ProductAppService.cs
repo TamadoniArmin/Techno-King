@@ -69,6 +69,12 @@ namespace Techno_KingAppService.Techno_King.Products
             return await _productService.GetProductsSortedBySalesCountAsync(ascending, cancellationToken);
         }
         #endregion
+        #region Discount Percentage Sorting
+        public async Task<List<ProductDTOs>> GetProductsSortedByDiscountPercentageAsync(bool ascending, CancellationToken cancellationToken)
+        {
+            return await _productService.GetProductsSortedByDiscountPercentageAsync(ascending, cancellationToken);
+        }
+        #endregion
         #endregion
         public async Task<List<ProductDTOs>> GetAllProductsAsync(CancellationToken cancellationToken)
         {
