@@ -1,5 +1,6 @@
 ﻿using App.Domain.Core.Techno_King.App.Domain.Core;
 using App.Domain.Core.Techno_King.DTOs.Products;
+using App.Domain.Core.Techno_King.Enum;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -99,36 +100,36 @@ namespace Techno_King_WebAPI.Controllers
         }
         #endregion
         #region Sorting
-        [HttpGet("SortByPrice")]
-        public async Task<IActionResult> GetProductsSortedByPriceAsync(bool ascending, CancellationToken cancellationToken)
+
+        [HttpGet("Sort")]
+        public async Task<IActionResult> GetProductsSortedAsync(
+            [FromQuery] ProductSortType sortBy,
+            [FromQuery] bool ascending = true,
+            CancellationToken cancellationToken = default)
         {
-            var products = await productAppService.GetProductsSortedByPriceAsync(ascending, cancellationToken);
+            var products = sortBy switch
+            {
+                ProductSortType.Price =>
+                    await productAppService.GetProductsSortedByPriceAsync(ascending, cancellationToken),
+
+                ProductSortType.Rating =>
+                    await productAppService.GetProductsSortedByRatingAsync(ascending, cancellationToken),
+
+                ProductSortType.SalesCount =>
+                    await productAppService.GetProductsSortedBySalesCountAsync(ascending, cancellationToken),
+
+                ProductSortType.DiscountPercentage =>
+                    await productAppService.GetProductsSortedByDiscountPercentageAsync(ascending, cancellationToken),
+
+                ProductSortType.CreatedAt =>
+                    await productAppService.GetProductsSortedByCreatedAtAsync(ascending, cancellationToken),
+
+                _ => await productAppService.GetProductsSortedByCreatedAtAsync(ascending, cancellationToken)
+            };
+
             return Ok(products);
         }
-        [HttpGet("SortByRating")]
-        public async Task<IActionResult> GetProductsSortedByRatingAsync(bool ascending, CancellationToken cancellationToken)
-        {
-            var products = await productAppService.GetProductsSortedByRatingAsync(ascending, cancellationToken);
-            return Ok(products);
-        }
-        [HttpGet("SortBySalesCount")]
-        public async Task<IActionResult> GetProductsSortedBySalesCountAsync(bool ascending, CancellationToken cancellationToken)
-        {
-            var products = await productAppService.GetProductsSortedBySalesCountAsync(ascending, cancellationToken);
-            return Ok(products);
-        }
-        [HttpGet("SortByDiscountPercentage")]
-        public async Task<IActionResult> GetProductsSortedByDiscountPercentageAsync(bool ascending, CancellationToken cancellationToken)
-        {
-            var products = await productAppService.GetProductsSortedByDiscountPercentageAsync(ascending, cancellationToken);
-            return Ok(products);
-        }
-        [HttpGet("SortByCreatedAt")]
-        public async Task<IActionResult> GetProductsSortedByCreatedAtAsync(bool ascending, CancellationToken cancellationToken)
-        {
-            var products = await productAppService.GetProductsSortedByCreatedAtAsync(ascending, cancellationToken);
-            return Ok(products);
-        }
+
         #endregion
     }
 }
