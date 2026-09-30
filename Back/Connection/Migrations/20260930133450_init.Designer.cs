@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Connection.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260908112316_init")]
+    [Migration("20260930133450_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -1650,7 +1650,6 @@ namespace Connection.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Mobile")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NewRole")
