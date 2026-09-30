@@ -1647,7 +1647,6 @@ namespace Connection.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Mobile")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NewRole")
