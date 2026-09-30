@@ -49,83 +49,65 @@ namespace Techno_KingAppService.Techno_King.Users
         }
         #endregion
         #region Create
-        public async Task<IdentityResult> Register(UserToCreateDTO model, CancellationToken cancellationToken)
+        public async Task<IdentityResult> Register(UserForRegisterDTO model, CancellationToken cancellationToken)
         {
-            string role = string.Empty;
-
-            //if (model.ProfileImgFile is not null)
-            //{
-            //    model.ImagePath = await _generalService.UploadImage(model.ProfileImgFile!, "Profiles", cancellationToken);
-            //}
             var user = new UserBase
             {
-                UserName = model.Username,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
+                UserName = model.UserName,
                 Email = model.Email,
-                Mobile = model.Mobile,
-                Role = model.Role,
+                Role = RoleEnum.Customer,
                 Balance = 1000000,
                 RegisteredAt = DateTime.Now,
-                ImagePath = model.ImagePath ?? null
+                Customer = new Customer()
             };
-
-            if (model.Role == RoleEnum.SuperAdmin)
-            {
-                role = "SuperAdmin";
-            }
-
-            if (model.Role == RoleEnum.Admin)
-            {
-                role = "Admin";
-                user.Admin = new Admin()
-                {
-                };
-            }
-
-            if (model.Role == RoleEnum.Customer)
-            {
-                role = "Customer";
-                user.Customer = new Customer()
-                {
-                };
-            }
 
             var result = await _userManager.CreateAsync(user, model.Password);
 
-            if (result.Succeeded)
-            {
-
-                await _userManager.AddToRoleAsync(user, role);
-
-
-                if (model.Role == RoleEnum.Customer)
-                {
-                    await _userManager.AddClaimAsync(user, new Claim("CustomerId", user.Customer.Id.ToString()));
-                }
-
-                if (!model.CreatedBySuperAdmin && model.Role == RoleEnum.Admin)
-                {
-                    await _userManager.AddClaimAsync(user, new Claim("AdminId", user.Admin.Id.ToString()));
-                }
-                if (!model.CreatedBySuperAdmin)
-                {
-                    await _signInManager.PasswordSignInAsync(user.UserName, model.Password, true, false);
-                }
-            }
             if (!result.Succeeded)
             {
-                _logger.LogWarning("{Time}کاربری با نام کاربری{Usernam} نتوانست ثبتنام کند", DateTime.UtcNow.ToLongTimeString(), user.UserName);
+                _logger.LogWarning("User with username {Username} failed to register at {Time}",
+                    model.UserName, DateTime.UtcNow.ToLongTimeString());
+                return result;
             }
-            else if (result.Succeeded)
-            {
-                _logger.LogInformation("کاربری با نام کاربری {Username} درساعت {Time} با موفقیت ثبتنام کرد", DateTime.UtcNow.ToLongTimeString(), user.UserName);
-            }
-            return result;
 
+            await _userManager.AddToRoleAsync(user, "Customer");
+            await _userManager.AddClaimAsync(user, new Claim("CustomerId", user.Customer.Id.ToString()));
+
+            if (!model.CreatedByAdmin)
+            {
+                await _signInManager.PasswordSignInAsync(user.UserName, model.Password, true, false);
+            }
+
+            _logger.LogInformation("User with username {Username} registered successfully at {Time}",
+                user.UserName, DateTime.UtcNow.ToLongTimeString());
+
+            return result;
         }
         #endregion
         #region Read
+        #region Login
+        public async Task<IdentityResult> Login(string email, string password, bool rememberMe)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user is null)
+            {
+                _logger.LogWarning("Failed login attempt with email {Email}", email);
+                return IdentityResult.Failed(new IdentityError { Description = "Email or password is incorrect." });
+            }
+
+            // SignInManager requires the UserName, so we take it from the user we just found
+            var result = await _signInManager.PasswordSignInAsync(user.UserName!, password, rememberMe, false);
+
+            if (!result.Succeeded)
+            {
+                _logger.LogWarning("Login failed for email {Email}", email);
+                return IdentityResult.Failed(new IdentityError { Description = "Email or password is incorrect." });
+            }
+
+            _logger.LogInformation("User with email {Email} logged in", email);
+            return IdentityResult.Success;
+        }
+        #endregion
         public async Task<List<GetUserBaseForViewPage>> GetAllUsersAsync(CancellationToken cancellationToken)
         {
             List<GetUserBaseForViewPage> WantedUsers;
@@ -191,13 +173,6 @@ namespace Techno_KingAppService.Techno_King.Users
                 return newValue;
             }
             return currentValue;
-        }
-
-        public async Task<IdentityResult> Login(string username, string password, bool rememberMe)
-        {
-            var result = await _signInManager.PasswordSignInAsync(username, password, rememberMe, false);
-            _logger.Log(logLevel: LogLevel.Warning, "User Logged In");
-            return result.Succeeded ? IdentityResult.Success : IdentityResult.Failed();
         }
 
         public async Task LogoutAsync()

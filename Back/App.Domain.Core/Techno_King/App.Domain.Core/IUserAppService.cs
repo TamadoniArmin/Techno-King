@@ -11,10 +11,10 @@ namespace App.Domain.Core.Techno_King.App.Domain.Core
     public interface IUserAppService
     {
         #region Create
-        public Task<IdentityResult> Register(UserToCreateDTO model, CancellationToken cancellationToken);
+        public Task<IdentityResult> Register(UserForRegisterDTO model, CancellationToken cancellationToken);
         #endregion
         #region Read
-        public Task<IdentityResult> Login(string username, string password, bool rememberMe);
+        public Task<IdentityResult> Login(string email, string password, bool rememberMe);
         Task<List<GetUserBaseForViewPage>> GetAllUsersAsync(CancellationToken cancellationToken);
         public Task<UserDTO?> GetCurrentUserAsync();
         public Task<UserBaseDTO> GetByIdAsync(int id, CancellationToken cancellationToken);
