@@ -27,6 +27,7 @@ Log.Logger = new LoggerConfiguration()
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // --- Load SiteSettings from the built-in configuration ---
 // This automatically includes appsettings.json, environment variables, etc.
 var siteSettings = builder.Configuration.GetSection("SiteSettings").Get<Sitesettings>();
@@ -47,6 +48,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddIdentity<UserBase, IdentityRole<int>>(options =>
 {
+    options.User.RequireUniqueEmail = true;
     options.SignIn.RequireConfirmedAccount = false;
     options.Password.RequireDigit = false;
     options.Password.RequiredLength = 6;
