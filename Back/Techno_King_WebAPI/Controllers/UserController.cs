@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using Techno_King_WebAPI.WebFramework.ApiHelper;
 using Techno_KingAppService.Techno_King.Users;
 
@@ -25,18 +26,6 @@ namespace Techno_King_WebAPI.Controllers
                 Result1 = allUsers
             };
             return Ok(result);
-        }
-
-        [HttpPost("Register")]
-        public async Task<IdentityResult> Register(UserToCreateDTO model, CancellationToken cancellationToken)
-        {
-            return await userAppService.Register(model, cancellationToken);
-        }
-
-        [HttpPost("Login")]
-        public async Task<IdentityResult> Login(string username, string password, bool rememberMe)
-        {
-            return await userAppService.Login(username, password, rememberMe);
         }
 
         [HttpGet("Current User")]
