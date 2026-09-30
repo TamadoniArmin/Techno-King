@@ -8,7 +8,7 @@ namespace App.Domain.Core.Techno_King.Entities.Users
         #region
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
-        public string Mobile { get; set; }
+        public string? Mobile { get; set; }
         public DateTime RegisteredAt { get; set; }
         public int Balance { get; set; } = 0;
         public int RoleId { get; set; }
